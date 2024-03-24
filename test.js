@@ -39,10 +39,13 @@ const tarFileCopy = path.resolve("resource/19145683-09a5-4fc1-9f70-91632152facb-
 fs.copyFileSync(tarFile, tarFileCopy)
 let info = readTarFile( tarFileCopy, 'info.json');
 
+// true
 console.log("file exists:" + fs.existsSync(tarFileCopy))
 
 fs.unlinkSync(tarFileCopy)
 
+//false
+// But the file still exists in the file system, until the program exits, the file is truly deleted
 console.log("file exists:" + fs.existsSync(tarFileCopy))
 
 setTimeout(() => {
